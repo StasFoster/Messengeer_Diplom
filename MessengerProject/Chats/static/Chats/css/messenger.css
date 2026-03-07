@@ -1,0 +1,29 @@
+/* layout мессенджера */
+
+.messenger_layout{
+
+    display:flex;
+
+    height:calc(100vh - 70px);
+
+    padding:20px;
+}
+
+
+/* окно чатов */
+
+.chat_window{
+
+    flex:1;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}

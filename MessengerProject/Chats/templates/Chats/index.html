@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Messenger
+{% endblock title %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'Chats/css/messenger.css' %}">
+{% endblock styles %}
+
+
+{% block header %}
+
+<header class="main_header">
+
+    <div class="logo">
+        ☀ Messenger
+    </div>
+
+    <div class="auth_buttons">
+        <button class="btn">Регистрация</button>
+        <button class="btn btn_login">Вход</button>
+    </div>
+
+</header>
+
+{% endblock header %}
+
+
+
+{% block content %}
+
+<div class="messenger_layout">
+
+    <div class="chat_window">
+        {% include "Chats/window_chats.html" %}
+    </div>
+
+</div>
+
+{% endblock content %}

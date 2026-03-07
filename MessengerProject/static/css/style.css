@@ -1,0 +1,77 @@
+/* Сброс */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* Шрифты */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#fdfdf5;
+}
+
+
+/* Основная страница */
+
+.page{
+    min-height:100vh;
+}
+
+
+/* HEADER */
+
+.main_header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 30px;
+
+    background:linear-gradient(
+        90deg,
+        #fff6c7,
+        #ffe27a
+    );
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/* логотип */
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+/* кнопки */
+
+.btn{
+
+    padding:8px 16px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#ffd447;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+
+.btn:hover{
+    background:#ffc800;
+}
+
+
+.btn_login{
+    background:#ffb800;
+}
