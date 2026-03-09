@@ -1,0 +1,12 @@
+{% extends "Auth/index.html" %}
+
+{% block title %}Вход{% endblock title %}
+{% block auth_title %}Вход в аккаунт{% endblock auth_title %}
+
+{% block form %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+</form>
+{% endblock form %}

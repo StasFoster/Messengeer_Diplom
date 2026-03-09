@@ -1,0 +1,104 @@
+<div class="chat_list">
+
+{% for chat in chats %}
+
+<div class="chat_item">
+
+    <div class="chat_avatar">
+
+        {% if chat.avatar %}
+            <img src="{{ chat.avatar.url }}">
+        {% else %}
+            <div class="avatar_placeholder">
+                {{ chat.name|slice:":1"|upper }}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <div class="chat_info">
+
+        <div class="chat_title">
+            {{ chat.name }}
+        </div>
+
+
+        <div class="chat_last_message">
+
+            {% with last=chat.messages.last %}
+
+                {% if last %}
+
+                    <span class="msg_author">
+                        {{ last.author.username }}:
+                    </span>
+
+                    {{ last.text|truncatechars:35 }}
+
+                {% else %}
+
+                    Нет сообщений
+
+                {% endif %}
+
+            {% endwith %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="chat_empty_state">
+
+    {% if user.is_authenticated %}
+        <div class="empty_icon">
+            💬
+        </div>
+
+        <div class="empty_title">
+            У вас пока нет чатов
+        </div>
+
+        <div class="empty_description">
+            Создайте новый чат и начните общение
+        </div>
+
+        <button class="create_chat_btn">
+            + Создать чат
+        </button>
+    {% else %}
+        <div class="welcome_block">
+
+            <div class="welcome_icon">
+                🌞
+            </div>
+
+            <h2 class="welcome_title">
+                Добро пожаловать в Messenger!
+            </h2>
+
+            <p class="welcome_text">
+                Здесь вы можете переписываться с друзьями, создавать чаты и оставаться на связи.
+                Наслаждайтесь общением в светлой и приятной атмосфере.
+            </p>
+            
+            <a href="{% url "register" %}">
+                <button class="welcome_btn">
+                    Начать переписку
+                </button>
+            </a>
+        </div>
+    
+    {% endif %}
+
+   
+
+</div>
+
+{% endfor %}
+
+</div>

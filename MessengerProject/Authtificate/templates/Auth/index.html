@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Авторизация{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'Auth/css/auth.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="auth_page">
+    <div class="auth_block">
+
+        <h2 class="auth_title">{% block auth_title %}Добро пожаловать!{% endblock auth_title %}</h2>
+
+        {% block form %}
+        <!-- сюда будет вставляться форма регистрации или входа -->
+        {% endblock form %}
+
+    </div>
+</div>
+{% endblock content %}

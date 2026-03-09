@@ -27,3 +27,243 @@
     overflow-y:auto;
 
 }
+/* список чатов */
+
+.chat_list{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+/* один чат */
+
+.chat_item{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+
+/* hover */
+
+.chat_item:hover{
+
+    background:#fff3c4;
+
+}
+
+
+/* аватар */
+
+.chat_avatar{
+
+    width:45px;
+    height:45px;
+
+    flex-shrink:0;
+}
+
+
+.chat_avatar img{
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+}
+
+
+/* если нет аватарки */
+
+.avatar_placeholder{
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    background:#ffd447;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+}
+
+
+
+/* инфо */
+
+.chat_info{
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* название */
+
+.chat_title{
+
+    font-weight:600;
+
+    font-size:15px;
+}
+
+
+/* последнее сообщение */
+
+.chat_last_message{
+
+    font-size:13px;
+
+    color:#666;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+
+}
+/* empty state */
+
+.chat_empty_state{
+
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    gap:10px;
+
+    color:#666;
+
+}
+
+
+
+/* иконка */
+
+.empty_icon{
+
+    font-size:40px;
+
+}
+
+
+
+/* заголовок */
+
+.empty_title{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+
+/* описание */
+
+.empty_description{
+
+    font-size:14px;
+
+}
+
+
+
+/* кнопка */
+
+.create_chat_btn{
+
+    margin-top:10px;
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ffd447;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+
+
+.create_chat_btn:hover{
+
+    background:#ffbf00;
+
+}
+
+.welcome_block{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background: linear-gradient(135deg, #fffbe6, #fff1a8);
+    border-radius:16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    gap:15px;
+}
+
+.welcome_icon{
+    font-size:50px;
+}
+
+.welcome_title{
+    font-size:24px;
+    font-weight:700;
+    color:#333;
+}
+
+.welcome_text{
+    font-size:16px;
+    color:#555;
+    max-width:400px;
+}
+
+.welcome_btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#ffd447;
+    cursor:pointer;
+    transition:0.2s;
+    font-weight:600;
+}
+
+.welcome_btn:hover{
+    background:#ffbf00;
+}

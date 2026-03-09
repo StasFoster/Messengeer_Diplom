@@ -19,10 +19,17 @@ Messenger
         ☀ Messenger
     </div>
 
-    <div class="auth_buttons">
-        <button class="btn">Регистрация</button>
-        <button class="btn btn_login">Вход</button>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="auth_buttons"> 
+            <a href="{% url "logout" %}"><button class="btn btn_login">Выход</button></a> 
+        </div>
+    {% else %}
+        <div class="auth_buttons">
+            <a href="{% url "register" %}"><button class="btn">Регистрация</button></a> 
+            <a href="{% url "login" %}"><button class="btn btn_login">Вход</button></a> 
+        </div>
+    {% endif %}
+    
 
 </header>
 
