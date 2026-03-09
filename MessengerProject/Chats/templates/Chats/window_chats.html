@@ -1,5 +1,6 @@
+{% load static %}
 <div class="chat_list">
-
+<script src="{% static "Chats/js/script.js" %}"></script>
 {% for chat in chats %}
 
 <div class="chat_item">
@@ -67,8 +68,12 @@
             Создайте новый чат и начните общение
         </div>
 
-        <button class="create_chat_btn">
+        <button class="create_chat_btn" onclick="openModal('createChatModal')">
             + Создать чат
+        </button>
+
+        <button class="create_chat_btn" onclick="openModal('writeUserModal')">
+            + Написать кому-то
         </button>
     {% else %}
         <div class="welcome_block">
@@ -85,7 +90,7 @@
                 Здесь вы можете переписываться с друзьями, создавать чаты и оставаться на связи.
                 Наслаждайтесь общением в светлой и приятной атмосфере.
             </p>
-            
+
             <a href="{% url "register" %}">
                 <button class="welcome_btn">
                     Начать переписку
@@ -101,4 +106,59 @@
 
 {% endfor %}
 
+</div>
+
+<div id="createChatModal" class="modal">
+
+<div class="modal_content">
+
+<span class="modal_close" onclick="closeModal('createChatModal')">&times;</span>
+
+<h3>Создать чат</h3>
+
+<form method="POST">
+{% csrf_token %}
+
+{% for field in create_chat_form %}
+<div class="form_group">
+
+    {{ field.label_tag }}
+
+    {{ field }}
+
+    {% if field.errors %}
+        <div class="form_error">
+            {{ field.errors }}
+        </div>
+    {% endif %}
+
+</div>
+{% endfor %}
+
+<button type="submit">Создать</button>
+
+</form>
+
+</div>
+</div>
+
+<div id="writeUserModal" class="modal">
+
+<div class="modal_content">
+
+<span class="modal_close" onclick="closeModal('writeUserModal')">&times;</span>
+
+<h3>Написать пользователю</h3>
+
+<form method="POST">
+{% csrf_token %}
+    
+
+{{ create_user_chat_form }}
+
+<button type="submit">Начать чат</button>
+
+</form>
+
+</div>
 </div>

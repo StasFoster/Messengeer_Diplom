@@ -10,5 +10,5 @@ class UserModel(AbstractUser):
         verbose_name_plural = ("UserModels")
 
     def __str__(self):
-        return self.name
+        return self.username
 

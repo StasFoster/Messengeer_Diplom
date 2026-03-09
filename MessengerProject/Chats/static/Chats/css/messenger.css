@@ -267,3 +267,157 @@
 .welcome_btn:hover{
     background:#ffbf00;
 }
+
+/* MODAL */
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.4);
+
+justify-content:center;
+align-items:center;
+
+z-index:1000;
+
+}
+
+
+.modal_content{
+
+    width:420px;
+    max-width:90%;
+
+    background:white;
+    padding:35px;
+
+    border-radius:20px;
+
+}
+
+.modal_content input{
+
+padding:10px;
+
+border-radius:8px;
+
+border:1px solid #ddd;
+
+}
+
+
+.modal_content button{
+
+padding:10px;
+
+border:none;
+
+border-radius:8px;
+
+background:#ffd447;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+
+.modal_close{
+
+align-self:flex-end;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+.form_group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.form_group label{
+    font-size:16px;
+    margin-bottom:6px;
+    font-weight:500;
+}
+
+.form_group input,
+.form_group select,
+.form_group textarea{
+
+    padding:10px 12px;
+
+    border-radius:8px;
+    border:1px solid #ddd;
+
+    font-size:15px;
+
+    width:auto;
+    box-sizing:border-box;
+
+}
+
+.form_group textarea{
+    min-height:40px;
+    resize:vertical;
+}
+
+.form_error{
+    color:red;
+    font-size:14px;
+    margin-top:4px;
+}
+
+/* Стили для SelectMultiple (выбор пользователей) */
+
+select[multiple] {
+    width: 100%;                     /* растягиваем на всю ширину формы */
+    padding: 8px 12px;               /* внутренние отступы */
+    border: 1px solid #ddd;          /* светлая граница */
+    border-radius: 8px;              /* скругление углов */
+    background: #fff;                /* белый фон */
+    font-size: 15px;                 /* размер шрифта */
+    line-height: 1.4;                /* высота строки */
+    box-sizing: border-box;          /* чтобы padding учитывался в ширине */
+    color: #333;                     /* цвет текста */
+    outline: none;                   /* убрать стандартное обрамление при фокусе */
+}
+
+select[multiple]:focus {
+    border-color: #ffd447;           /* желтая подсветка при фокусе */
+    box-shadow: 0 0 5px rgba(255, 212, 71, 0.5);
+}
+
+select[multiple] option {
+    padding: 4px 8px;                /* внутренние отступы для каждой опции */
+}
+
+/* hover эффект для опций (только в некоторых браузерах) */
+select[multiple] option:hover {
+    background-color: #fff4c3;
+}
+
+/* Чтобы список не выглядел слишком высоким */
+select[multiple] {
+    max-height: 200px;               /* максимум по высоте */
+    overflow-y: auto;                /* добавляем скролл если опций больше */
+}
+
+/* Можно добавить тень вокруг селекта для красивого эффекта */
+select[multiple] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease-in-out;
+}   
+
