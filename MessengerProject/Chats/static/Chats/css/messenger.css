@@ -341,83 +341,100 @@ font-size:20px;
 cursor:pointer;
 
 }
-.form_group{
-    display:flex;
-    flex-direction:column;
-    margin-bottom:20px;
+/* Общие стили для формы */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
 }
 
-.form_group label{
-    font-size:16px;
-    margin-bottom:6px;
-    font-weight:500;
+/* Стили для каждой группы полей */
+.form_group {
+    margin-bottom: 15px;
 }
 
-.form_group input,
-.form_group select,
-.form_group textarea{
-
-    padding:10px 12px;
-
-    border-radius:8px;
-    border:1px solid #ddd;
-
-    font-size:15px;
-
-    width:auto;
-    box-sizing:border-box;
-
+/* Стили для input и select внутри формы */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-.form_group textarea{
-    min-height:40px;
-    resize:vertical;
+/* Стили для кнопки */
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s;
 }
 
-.form_error{
-    color:red;
-    font-size:14px;
-    margin-top:4px;
+form button:hover {
+    background-color: #45a049;
 }
 
-/* Стили для SelectMultiple (выбор пользователей) */
-
-select[multiple] {
-    width: 100%;                     /* растягиваем на всю ширину формы */
-    padding: 8px 12px;               /* внутренние отступы */
-    border: 1px solid #ddd;          /* светлая граница */
-    border-radius: 8px;              /* скругление углов */
-    background: #fff;                /* белый фон */
-    font-size: 15px;                 /* размер шрифта */
-    line-height: 1.4;                /* высота строки */
-    box-sizing: border-box;          /* чтобы padding учитывался в ширине */
-    color: #333;                     /* цвет текста */
-    outline: none;                   /* убрать стандартное обрамление при фокусе */
+/* Стили для поля поиска пользователей */
+#searchUser {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-select[multiple]:focus {
-    border-color: #ffd447;           /* желтая подсветка при фокусе */
-    box-shadow: 0 0 5px rgba(255, 212, 71, 0.5);
+/* Стили для блока с результатами поиска */
+#result {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 5px;
 }
 
-select[multiple] option {
-    padding: 4px 8px;                /* внутренние отступы для каждой опции */
+/* Каждый пользователь в результатах */
+#result div {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
 }
 
-/* hover эффект для опций (только в некоторых браузерах) */
-select[multiple] option:hover {
-    background-color: #fff4c3;
+#result div:last-child {
+    border-bottom: none;
 }
 
-/* Чтобы список не выглядел слишком высоким */
-select[multiple] {
-    max-height: 200px;               /* максимум по высоте */
-    overflow-y: auto;                /* добавляем скролл если опций больше */
+/* Кнопка "Add" в результатах */
+#result button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
 }
 
-/* Можно добавить тень вокруг селекта для красивого эффекта */
-select[multiple] {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.2s ease-in-out;
-}   
+#result button:hover {
+    background-color: #0b7dda;
+}  
 
