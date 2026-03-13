@@ -116,24 +116,15 @@
 
         <h3>Создать чат</h3>
 
-        <form method="POST">
-            {% csrf_token %}
+        <input name="name" type="text" id="name" placeholder="Название чата" ></input>
 
-            {% for field in create_chat_form %}
-            <div class="form_group">
+        <div class='result_search_chat' id="members"></div>
+            
+        <input type="text" id="searchUser1" placeholder="Имя пользователя"></input>
 
-                {{ field }}
+        <div class='result_search_chat' id="result1" ></div>
 
-            </div>
-            {% endfor %}
-
-            <input type="text" id="searchUser1", placeholder="Имя пользователя">
-
-            <div id="result1" ></div>
-
-            <button type="submit">Создать</button>
-
-        </form>
+        <button type="button" id="create">Создать</button>
 
     </div>
 </div>
@@ -149,7 +140,7 @@
         <form method="POST">
             {% csrf_token %}
 
-            <input type="text" id="searchUser2", placeholder="Имя пользователя">
+            <input type="text" id="searchUser2" placeholder="Имя пользователя"></input>
 
             <div id="result2" ></div>
 

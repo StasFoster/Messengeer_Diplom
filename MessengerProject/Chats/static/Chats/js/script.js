@@ -1,4 +1,6 @@
-let chat = []
+let chat = {}
+
+
 
 function openModal(id){
     document.getElementById(id).style.display="flex"
@@ -6,6 +8,22 @@ function openModal(id){
 
 function closeModal(id){
     document.getElementById(id).style.display="none"
+}
+
+function addChat(id, username, members){
+    let mem = document.getElementById(members)
+    if(id in chat){
+        console.log("есть в чате")
+    }
+    else{
+        chat[id] = username
+        let div = document.createElement("div")
+        div.className = "el_search_chat"
+        div.innerHTML = `
+            <p>${username}</p>
+        `
+        mem.appendChild(div)
+    }
 }
 
 window.onclick = function(event){
@@ -20,39 +38,53 @@ window.onclick = function(event){
 
 }
 
-function addChat(id, username){
-    chat.push([id, username])
-}
-
-function checkSearch(value, result){
-    val = document.getElementById(value)
-    res = document.getElementById(result)
-
+function checkSearch(value, result,members, mode=0){
+    let val = document.getElementById(value)
+    let res = document.getElementById(result)
+    
+    
     val.addEventListener("input", async function(){
-        input = val.value
-        if (input.length < 1){
+        text = val.value
+        
+        if (text.length < 1){
             res.innerHTML = ""
+            console.log(val.value)
             return
         }
-        let response = await fetch(`/api/chats/users/?q=${input}`)
+        let response = await fetch(`/api/chats/users/?q=${text}`)
         let list_user = await response.json()
         let users = list_user["users"]
         res.innerHTML = ""
+        console.log(users)
         users.forEach(user => {
             
             let div = document.createElement("div")
-
-            div.innerHTML = `
-                ${user.username}
-                <button onclick="addChat(user)">Add</button>
-            `
-
+            div.className = "el_search_chat"
+            switch (mode) {
+                case 1:
+                     div.innerHTML = `
+                        ${user.username}
+                        <button type="button" onclick="addChat(${user.id}, '${user.username}','${members}')">Add</button>
+                    `  
+                    break;
+                
+                case 0:
+                     div.innerHTML = `
+                        ${user.username}
+                        <button type="button" onclick="addDialog()">Add</button>
+                    `  
+                    break;
+            
+                default:
+                    break;
+            }
+            
             res.appendChild(div)
         })
     })
-    }
+}
 
-
-checkSearch("searchUser1", "result1")
-checkSearch("searchUser2", "result2")
-
+document.addEventListener('DOMContentLoaded', function() {
+    checkSearch("searchUser1", "result1", "members", 1)
+    checkSearch("searchUser2", "result2", "members2")
+});
